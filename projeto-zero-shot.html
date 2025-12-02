@@ -263,6 +263,14 @@
         return;
       }
       const candidates = (item.candidatas || []).map((c) => `<div class="candidate"><strong>${c.label}</strong><br/><span class="muted">Score: ${(c.score * 100).toFixed(1)}%</span></div>`).join('');
+      const keywords = (item.detalhes?.palavras_chave || []).join(', ') || '—';
+      const normalized = item.detalhes?.texto_normalizado || '—';
+      const distribution = (item.detalhes?.scores_por_categoria || [])
+        .map((c) => `<li>${c.label}: ${(c.score * 100).toFixed(1)}%</li>`)
+        .join('');
+      const guidingQuestions = (item.detalhes?.perguntas_sugeridas || [])
+        .map((q) => `<li>${q}</li>`)
+        .join('');
       resultBox.innerHTML = `
         <h3>Categoria prevista</h3>
         <p><strong>${item.categoria}</strong></p>
@@ -271,6 +279,13 @@
         <div class="candidates">${candidates}</div>
         <h4>Descrição legível</h4>
         <p>${item.descricao_legivel || '—'}</p>
+        <h4>Palavras-chave e normalização</h4>
+        <p class="muted">Normalizado: <code>${normalized}</code></p>
+        <p>Termos: ${keywords}</p>
+        <h4>Distribuição completa</h4>
+        <ul class="muted">${distribution}</ul>
+        <h4>Perguntas para explorar</h4>
+        <ul>${guidingQuestions}</ul>
       `;
     }
 

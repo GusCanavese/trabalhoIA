@@ -9,6 +9,7 @@ import re
 from typing import List
 
 import pandas as pd
+import torch
 from transformers import pipeline
 
 LABELS = [
@@ -48,6 +49,25 @@ ABBREVIATIONS = {
     "cont": "contato",
     "inox": "inox",
     "coz": "cozinha",
+}
+
+STOPWORDS = {
+    "de",
+    "do",
+    "da",
+    "para",
+    "com",
+    "em",
+    "por",
+    "sem",
+    "uma",
+    "um",
+    "na",
+    "no",
+    "nas",
+    "nos",
+    "e",
+    "ou",
 }
 
 
@@ -114,8 +134,33 @@ def humanize_description(text: str) -> str:
     return " ".join(expanded)
 
 
+def normalize_text(text: str) -> str:
+    normalized = re.sub(r"[^\w\s]", " ", text.lower())
+    normalized = re.sub(r"\s+", " ", normalized)
+    return normalized.strip()
+
+
+def extract_keywords(text: str) -> List[str]:
+    tokens = normalize_text(text).split()
+    return [tok for tok in tokens if len(tok) > 2 and tok not in STOPWORDS]
+
+
+def build_questions(top_labels: List[str], keywords: List[str]) -> List[str]:
+    focus = ", ".join(keywords[:3]) if keywords else "itens do catálogo"
+    suggestions = [
+        f"O item se encaixa em {top_labels[0]} considerando {focus}?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+    ]
+    if len(top_labels) > 1:
+        suggestions.append(
+            f"Por que {top_labels[0]} é mais provável que {top_labels[1]}?"
+        )
+    return suggestions
+
+
 def main() -> None:
-    classifier = pipeline("zero-shot-classification", model=MODEL_NAME)
+    classifier = pipeline("zero-shot-classification", model=MODEL_NAME, device=-1)
     examples = load_examples()
     results = []
 
@@ -127,13 +172,26 @@ def main() -> None:
             {"label": label, "score": float(score)}
             for label, score in zip(labels[:3], scores[:3])
         ]
+        distribution = [
+            {"label": label, "score": float(score)}
+            for label, score in zip(labels, scores)
+        ]
+        readable = humanize_description(text)
+        keywords = extract_keywords(readable)
+        questions = build_questions(labels, keywords)
         results.append(
             {
                 "texto": text,
                 "categoria": top[0]["label"],
                 "score": float(top[0]["score"]),
                 "candidatas": top,
-                "descricao_legivel": humanize_description(text),
+                "descricao_legivel": readable,
+                "detalhes": {
+                    "texto_normalizado": normalize_text(text),
+                    "palavras_chave": keywords,
+                    "scores_por_categoria": distribution,
+                    "perguntas_sugeridas": questions,
+                },
             }
         )
 

@@ -38,3 +38,6 @@ python demo_zero_shot.py
 ```
 
 Após gerar o JSON, recarregue `projeto-zero-shot.html` no navegador e use o botão **Classificar**.
+
+> Dica: se aparecer `NameError: name 'torch' is not defined` ao rodar o script, instale o PyTorch com `pip install torch`. O
+> código importa a biblioteca explicitamente para evitar inconsistências no pipeline do Hugging Face.

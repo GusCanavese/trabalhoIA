@@ -8,7 +8,31 @@
       {"label": "Utensílios", "score": 0.04},
       {"label": "Peças", "score": 0.02}
     ],
-    "descricao_legivel": "Liquidificador Industrial 4 Litros LQL4"
+    "descricao_legivel": "Liquidificador Industrial 4 Litros LQL4",
+    "detalhes": {
+      "texto_normalizado": "liq ind 4lts lql4",
+      "palavras_chave": [
+        "liquidificador",
+        "industrial",
+        "litros",
+        "lql4"
+      ],
+      "scores_por_categoria": [
+        {"label": "Eletrodomésticos", "score": 0.93},
+        {"label": "Utensílios", "score": 0.04},
+        {"label": "Peças", "score": 0.02},
+        {"label": "Ferramentas", "score": 0.01},
+        {"label": "Informática", "score": 0.01},
+        {"label": "Limpeza", "score": 0.0},
+        {"label": "Acessórios", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Eletrodomésticos considerando liquidificador, industrial, litros?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Eletrodomésticos é mais provável que Utensílios?"
+      ]
+    }
   },
   {
     "texto": "KIT FERRAM. MANUT PNC",
@@ -19,7 +43,31 @@
       {"label": "Peças", "score": 0.07},
       {"label": "Utensílios", "score": 0.03}
     ],
-    "descricao_legivel": "Kit Ferramentas de Manutenção Pneumática"
+    "descricao_legivel": "Kit Ferramentas de Manutenção Pneumática",
+    "detalhes": {
+      "texto_normalizado": "kit ferram manut pnc",
+      "palavras_chave": [
+        "kit",
+        "ferramentas",
+        "manutenção",
+        "pneumática"
+      ],
+      "scores_por_categoria": [
+        {"label": "Ferramentas", "score": 0.88},
+        {"label": "Peças", "score": 0.07},
+        {"label": "Utensílios", "score": 0.03},
+        {"label": "Eletrodomésticos", "score": 0.01},
+        {"label": "Limpeza", "score": 0.01},
+        {"label": "Informática", "score": 0.0},
+        {"label": "Acessórios", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Ferramentas considerando kit, ferramentas, manutenção?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Ferramentas é mais provável que Peças?"
+      ]
+    }
   },
   {
     "texto": "HD SSD 1TB NVME",
@@ -30,7 +78,31 @@
       {"label": "Peças", "score": 0.02},
       {"label": "Utensílios", "score": 0.01}
     ],
-    "descricao_legivel": "HD/SSD 1TB NVMe"
+    "descricao_legivel": "HD/SSD 1TB NVMe",
+    "detalhes": {
+      "texto_normalizado": "hd ssd 1tb nvme",
+      "palavras_chave": [
+        "hd",
+        "ssd",
+        "1tb",
+        "nvme"
+      ],
+      "scores_por_categoria": [
+        {"label": "Informática", "score": 0.96},
+        {"label": "Peças", "score": 0.02},
+        {"label": "Utensílios", "score": 0.01},
+        {"label": "Acessórios", "score": 0.01},
+        {"label": "Eletrodomésticos", "score": 0.0},
+        {"label": "Ferramentas", "score": 0.0},
+        {"label": "Limpeza", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Informática considerando hd, ssd, 1tb?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Informática é mais provável que Peças?"
+      ]
+    }
   },
   {
     "texto": "DET.LIQ CLOR 5L",
@@ -41,7 +113,31 @@
       {"label": "Utensílios", "score": 0.04},
       {"label": "Eletrodomésticos", "score": 0.02}
     ],
-    "descricao_legivel": "Detergente Líquido com Cloro 5 Litros"
+    "descricao_legivel": "Detergente Líquido com Cloro 5 Litros",
+    "detalhes": {
+      "texto_normalizado": "det liq clor 5l",
+      "palavras_chave": [
+        "detergente",
+        "líquido",
+        "cloro",
+        "litros"
+      ],
+      "scores_por_categoria": [
+        {"label": "Limpeza", "score": 0.92},
+        {"label": "Utensílios", "score": 0.04},
+        {"label": "Eletrodomésticos", "score": 0.02},
+        {"label": "Peças", "score": 0.01},
+        {"label": "Acessórios", "score": 0.01},
+        {"label": "Ferramentas", "score": 0.0},
+        {"label": "Informática", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Limpeza considerando detergente, líquido, cloro?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Limpeza é mais provável que Utensílios?"
+      ]
+    }
   },
   {
     "texto": "CABO REDE CAT6 15M",
@@ -52,7 +148,31 @@
       {"label": "Peças", "score": 0.06},
       {"label": "Utensílios", "score": 0.02}
     ],
-    "descricao_legivel": "Cabo de Rede CAT6 15 Metros"
+    "descricao_legivel": "Cabo de Rede CAT6 15 Metros",
+    "detalhes": {
+      "texto_normalizado": "cabo rede cat6 15m",
+      "palavras_chave": [
+        "cabo",
+        "rede",
+        "cat6",
+        "metros"
+      ],
+      "scores_por_categoria": [
+        {"label": "Informática", "score": 0.9},
+        {"label": "Peças", "score": 0.06},
+        {"label": "Utensílios", "score": 0.02},
+        {"label": "Eletrodomésticos", "score": 0.01},
+        {"label": "Ferramentas", "score": 0.01},
+        {"label": "Limpeza", "score": 0.0},
+        {"label": "Acessórios", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Informática considerando cabo, rede, cat6?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Informática é mais provável que Peças?"
+      ]
+    }
   },
   {
     "texto": "SUPR LIMPA CONT. ELETR",
@@ -63,7 +183,31 @@
       {"label": "Informática", "score": 0.1},
       {"label": "Utensílios", "score": 0.06}
     ],
-    "descricao_legivel": "Suprimento para Limpeza de Contato Elétrico"
+    "descricao_legivel": "Suprimento para Limpeza de Contato Elétrico",
+    "detalhes": {
+      "texto_normalizado": "supr limpa cont eletr",
+      "palavras_chave": [
+        "suprimento",
+        "limpeza",
+        "contato",
+        "elétrico"
+      ],
+      "scores_por_categoria": [
+        {"label": "Limpeza", "score": 0.81},
+        {"label": "Informática", "score": 0.1},
+        {"label": "Utensílios", "score": 0.06},
+        {"label": "Acessórios", "score": 0.02},
+        {"label": "Eletrodomésticos", "score": 0.01},
+        {"label": "Peças", "score": 0.0},
+        {"label": "Ferramentas", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Limpeza considerando suprimento, limpeza, contato?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Limpeza é mais provável que Informática?"
+      ]
+    }
   },
   {
     "texto": "BICO ASP LAV IND",
@@ -74,7 +218,31 @@
       {"label": "Ferramentas", "score": 0.14},
       {"label": "Limpeza", "score": 0.05}
     ],
-    "descricao_legivel": "Bico de Aspersão para Lavadora Industrial"
+    "descricao_legivel": "Bico de Aspersão para Lavadora Industrial",
+    "detalhes": {
+      "texto_normalizado": "bico asp lav ind",
+      "palavras_chave": [
+        "bico",
+        "aspersão",
+        "lavadora",
+        "industrial"
+      ],
+      "scores_por_categoria": [
+        {"label": "Peças", "score": 0.78},
+        {"label": "Ferramentas", "score": 0.14},
+        {"label": "Limpeza", "score": 0.05},
+        {"label": "Acessórios", "score": 0.02},
+        {"label": "Eletrodomésticos", "score": 0.01},
+        {"label": "Informática", "score": 0.0},
+        {"label": "Utensílios", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Peças considerando bico, aspersão, lavadora?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Peças é mais provável que Ferramentas?"
+      ]
+    }
   },
   {
     "texto": "FACA INOX COZ 8\"",
@@ -85,7 +253,31 @@
       {"label": "Eletrodomésticos", "score": 0.05},
       {"label": "Peças", "score": 0.03}
     ],
-    "descricao_legivel": "Faca Inox para Cozinha 8 polegadas"
+    "descricao_legivel": "Faca Inox para Cozinha 8 polegadas",
+    "detalhes": {
+      "texto_normalizado": "faca inox coz 8",
+      "palavras_chave": [
+        "faca",
+        "inox",
+        "cozinha",
+        "polegadas"
+      ],
+      "scores_por_categoria": [
+        {"label": "Utensílios", "score": 0.89},
+        {"label": "Eletrodomésticos", "score": 0.05},
+        {"label": "Peças", "score": 0.03},
+        {"label": "Acessórios", "score": 0.02},
+        {"label": "Ferramentas", "score": 0.01},
+        {"label": "Informática", "score": 0.0},
+        {"label": "Limpeza", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Utensílios considerando faca, inox, cozinha?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Utensílios é mais provável que Eletrodomésticos?"
+      ]
+    }
   },
   {
     "texto": "PLACA CONTRL MOTOR 220V",
@@ -96,7 +288,31 @@
       {"label": "Eletrodomésticos", "score": 0.07},
       {"label": "Informática", "score": 0.03}
     ],
-    "descricao_legivel": "Placa de Controle para Motor 220V"
+    "descricao_legivel": "Placa de Controle para Motor 220V",
+    "detalhes": {
+      "texto_normalizado": "placa contrl motor 220v",
+      "palavras_chave": [
+        "placa",
+        "controle",
+        "motor",
+        "220v"
+      ],
+      "scores_por_categoria": [
+        {"label": "Peças", "score": 0.87},
+        {"label": "Eletrodomésticos", "score": 0.07},
+        {"label": "Informática", "score": 0.03},
+        {"label": "Ferramentas", "score": 0.02},
+        {"label": "Acessórios", "score": 0.01},
+        {"label": "Utensílios", "score": 0.0},
+        {"label": "Limpeza", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Peças considerando placa, controle, motor?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Peças é mais provável que Eletrodomésticos?"
+      ]
+    }
   },
   {
     "texto": "NOTE I5 16GB 512",
@@ -107,6 +323,32 @@
       {"label": "Eletrodomésticos", "score": 0.01},
       {"label": "Peças", "score": 0.01}
     ],
-    "descricao_legivel": "Notebook Intel i5 16GB RAM 512GB SSD"
+    "descricao_legivel": "Notebook Intel i5 16GB RAM 512GB SSD",
+    "detalhes": {
+      "texto_normalizado": "note i5 16gb 512",
+      "palavras_chave": [
+        "notebook",
+        "intel",
+        "16gb",
+        "ram",
+        "512gb",
+        "ssd"
+      ],
+      "scores_por_categoria": [
+        {"label": "Informática", "score": 0.97},
+        {"label": "Eletrodomésticos", "score": 0.01},
+        {"label": "Peças", "score": 0.01},
+        {"label": "Utensílios", "score": 0.0},
+        {"label": "Acessórios", "score": 0.0},
+        {"label": "Ferramentas", "score": 0.0},
+        {"label": "Limpeza", "score": 0.0}
+      ],
+      "perguntas_sugeridas": [
+        "O item se encaixa em Informática considerando notebook, intel, 16gb?",
+        "Existem componentes que sugerem uma categoria secundária?",
+        "Que termos diferenciadores ajudam a separar produtos parecidos?",
+        "Por que Informática é mais provável que Eletrodomésticos?"
+      ]
+    }
   }
 ]
