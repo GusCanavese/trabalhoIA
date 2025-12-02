@@ -12,37 +12,160 @@
       --text: #1f2937;
       --muted: #475569;
     }
-    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text);}    
-    header { background: linear-gradient(135deg, #1e3a8a, #4c6ef5); color: #fff; padding: 40px 24px; }
-    header a { color: #e0e7ff; text-decoration: none; font-weight: 600; }
-    main { max-width: 1080px; margin: 0 auto; padding: 32px 16px 56px; }
-    h1 { margin: 0 0 8px; }
-    h2 { margin-top: 32px; margin-bottom: 12px; }
-    .pill { display: inline-block; background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 999px; margin-right: 8px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
-    ul { padding-left: 18px; color: var(--muted); }
-    .demo { margin-top: 24px; }
-    textarea { width: 100%; min-height: 100px; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; resize: vertical; box-sizing: border-box; }
-    button { background: var(--accent); color: #fff; border: none; padding: 12px 20px; border-radius: 10px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(76,110,245,0.25); margin-top: 10px; }
-    button:hover { opacity: 0.95; }
-    .result { margin-top: 16px; background: #eef2ff; border: 1px solid #dfe3ff; border-radius: 12px; padding: 16px; }
-    .result h3 { margin-top: 0; }
-    .candidates { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; }
-    .candidate { background: #fff; border-radius: 10px; padding: 10px; border: 1px solid #e2e8f0; }
-    .muted { color: var(--muted); }
+
+    /* Base */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: #e0e7ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #4c6ef5);
+      color: #fff;
+      padding: 40px 0;
+    }
+
+    main {
+      padding: 32px 0 56px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-right: 8px;
+    }
+
+    .pill-group {
+      margin-top: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    /* Demo */
+    .demo {
+      margin-top: 24px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-size: 1rem;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(76, 110, 245, 0.25);
+      margin-top: 10px;
+    }
+
+    button:hover {
+      opacity: 0.95;
+    }
+
+    .result {
+      margin-top: 16px;
+      background: #eef2ff;
+      border: 1px solid #dfe3ff;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .result h3 {
+      margin-top: 0;
+    }
+
+    .candidates {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+    .candidate {
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
   <header>
-    <div style="max-width: 1080px; margin: 0 auto;">
+    <div class="container">
       <a href="index.html">← Voltar ao portfólio</a>
       <h1>Categorização Automática de Produtos</h1>
       <p class="muted">Zero-Shot Classification (NLI) para limpar descrições de itens e sugerir categorias padronizadas.</p>
-      <div class="pill">Zero-shot</div><div class="pill">NLI</div><div class="pill">Hugging Face</div>
+      <div class="pill-group">
+        <span class="pill">Zero-shot</span>
+        <span class="pill">NLI</span>
+        <span class="pill">Hugging Face</span>
+      </div>
     </div>
   </header>
-  <main>
+
+  <main class="container">
     <section class="grid">
       <div class="card">
         <h2>Problema</h2>
@@ -66,7 +189,7 @@
         </ul>
       </div>
       <div class="card">
-        <h2>Dataset & Modelos</h2>
+        <h2>Dataset &amp; Modelos</h2>
         <ul>
           <li>Arquivos locais: <code>pedidos.csv</code> e <code>produtos.csv</code> (TP1)</li>
           <li>Pipeline <code>zero-shot-classification</code> com modelo NLI (ex.: <code>facebook/bart-large-mnli</code>)</li>
@@ -87,9 +210,11 @@
     <section class="card demo">
       <h2>Demo (offline)</h2>
       <p class="muted">Use uma descrição suja e clique em "Classificar". Os resultados vêm de <code>public/demo_results.json</code> gerado previamente pelo script <code>demo_zero_shot.py</code>.</p>
-      <label for="dirty-text">Descrição suja</label>
-      <textarea id="dirty-text" placeholder="Ex.: LIQ. IND. 4LTS LQL4"></textarea>
-      <button id="classify-btn">Classificar</button>
+      <div class="stack">
+        <label for="dirty-text">Descrição suja</label>
+        <textarea id="dirty-text" placeholder="Ex.: LIQ. IND. 4LTS LQL4"></textarea>
+        <button id="classify-btn">Classificar</button>
+      </div>
       <div id="result" class="result" aria-live="polite">
         <h3>Categoria prevista</h3>
         <p class="muted">Insira um texto e veja a predição e a descrição legível.</p>

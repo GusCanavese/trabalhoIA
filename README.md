@@ -1,6 +1,16 @@
 # Portfólio de Projetos
 
-Portfólio estático com experimentos rápidos de ciência de dados. Inclui uma demo de categorização automática de produtos usando zero-shot classification (NLI) da Hugging Face.
+Portfólio estático com experimentos rápidos de ciência de dados. Inclui uma demo de categorização automática de produtos usando
+zero-shot classification (NLI) da Hugging Face.
+
+## O que o programa faz
+- Simula um fluxo de **padronização de descrições de produtos**: lê textos sujos, expande abreviações e sugere categorias.
+- Usa **zero-shot classification** (modelo NLI da Hugging Face) para atribuir rótulos sem precisar de dataset anotado.
+- Gera um arquivo estático (`public/demo_results.json`) com os resultados; a página web apenas **consulta** esse JSON.
+- A descrição exibida na demo é criada pelo script `demo_zero_shot.py` a partir dos dados (ou exemplos internos),
+  e não é inventada na hora pelo navegador.
+- Quando os arquivos `pedidos.csv` e `produtos.csv` estão presentes, eles são usados como fonte de dados; caso contrário,
+  a lista interna de exemplos é usada para gerar o JSON.
 
 ## Como rodar localmente
 1. Clone ou baixe este repositório.
@@ -11,17 +21,20 @@ Portfólio estático com experimentos rápidos de ciência de dados. Inclui uma 
 3. Abra `http://localhost:8000/index.html` no navegador para ver o portfólio. A página do projeto fica em `projeto-zero-shot.html`.
 
 ## Demo zero-shot
-A demo é 100% estática e usa um arquivo pré-gerado (`public/demo_results.json`). Para atualizar ou gerar novos resultados:
+### Como funciona
+- A página `projeto-zero-shot.html` **não consulta um banco nem roda modelo no navegador**; ela só lê o arquivo
+  `public/demo_results.json` gerado previamente.
+- O script `demo_zero_shot.py` procura correspondências nos CSVs disponíveis, expande abreviações para criar uma
+  descrição legível e roda o modelo zero-shot para sugerir categorias.
+- Ao abrir a demo e clicar em "Classificar", o texto digitado é normalizado e comparado com os exemplos já salvos
+  no JSON. O resultado exibido é a correspondência mais próxima e seus rótulos previstos.
+
+### Como atualizar o JSON
+Para gerar ou atualizar os resultados:
 
 ```bash
 pip install transformers torch pandas
 python demo_zero_shot.py
 ```
-
-O script:
-- Lê exemplos de `pedidos.csv` e `produtos.csv` (quando disponíveis) ou usa uma lista interna.
-- Aplica um modelo zero-shot NLI (`facebook/bart-large-mnli` por padrão) com rótulos editáveis.
-- Expande abreviações para gerar uma descrição legível.
-- Salva as previsões no arquivo `public/demo_results.json` consumido pela UI.
 
 Após gerar o JSON, recarregue `projeto-zero-shot.html` no navegador e use o botão **Classificar**.
