@@ -234,26 +234,74 @@
         .trim();
     }
 
+    function buildSearchFields(item) {
+      const keywords = (item.detalhes?.palavras_chave || []).join(' ');
+      return [
+        item.texto || '',
+        item.descricao_legivel || '',
+        keywords,
+      ]
+        .map(normalize)
+        .filter(Boolean);
+    }
+
+    function levenshteinDistance(a, b) {
+      const lenA = a.length;
+      const lenB = b.length;
+      const dp = Array.from({ length: lenA + 1 }, (_, i) => [i, ...Array(lenB).fill(0)]);
+      for (let j = 0; j <= lenB; j++) dp[0][j] = j;
+      for (let i = 1; i <= lenA; i++) {
+        for (let j = 1; j <= lenB; j++) {
+          const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+          dp[i][j] = Math.min(
+            dp[i - 1][j] + 1, // remoção
+            dp[i][j - 1] + 1, // inserção
+            dp[i - 1][j - 1] + cost, // substituição
+          );
+        }
+      }
+      return dp[lenA][lenB];
+    }
+
+    function tokenSimilarity(queryTokens, fieldTokens) {
+      if (!queryTokens.length || !fieldTokens.length) return 0;
+      const bestMatches = queryTokens.map((qt) => {
+        const scores = fieldTokens.map((ft) => {
+          const dist = levenshteinDistance(qt, ft);
+          const maxLen = Math.max(qt.length, ft.length) || 1;
+          return 1 - dist / maxLen; // 1 = igual, 0 = totalmente diferente
+        });
+        return Math.max(...scores);
+      });
+      return bestMatches.reduce((sum, s) => sum + s, 0) / bestMatches.length;
+    }
+
+    function scoreField(normField, normQuery, words) {
+      if (normField === normQuery) return 2; // match exato vale mais
+      if (normField.includes(normQuery) || normQuery.includes(normField)) return 1.5;
+
+      const fieldTokens = normField.split(' ').filter(Boolean);
+      const tokenScore = tokenSimilarity(words, fieldTokens);
+      const hits = words.filter((w) => normField.includes(w)).length;
+      const partialScore = words.length ? hits / words.length : 0;
+
+      return Math.max(tokenScore, partialScore);
+    }
+
     function bestLocalMatch(query) {
       if (!candidatesCache.data.length) return null;
       const normQuery = normalize(query);
+      const words = normQuery.split(' ').filter(Boolean);
       let best = null;
+
       candidatesCache.data.forEach((item) => {
-        const normItem = normalize(item.texto || '');
-        let score = 0;
-        if (normItem === normQuery) {
-          score = 2; // match exato vale mais
-        } else if (normItem.includes(normQuery) || normQuery.includes(normItem)) {
-          score = 1.5;
-        } else {
-          const words = normQuery.split(' ').filter(Boolean);
-          const hits = words.filter((w) => normItem.includes(w)).length;
-          score = words.length ? hits / words.length : 0;
-        }
-        if (!best || score > best.score) {
-          best = { item, score };
+        const searchFields = buildSearchFields(item);
+        const fieldScore = searchFields.reduce((max, field) => Math.max(max, scoreField(field, normQuery, words)), 0);
+        if (!best || fieldScore > best.score) {
+          best = { item, score: fieldScore };
         }
       });
+
       return best && best.score > 0 ? best.item : null;
     }
 
