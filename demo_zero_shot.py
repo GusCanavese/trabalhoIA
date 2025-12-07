@@ -79,7 +79,11 @@ def load_examples() -> List[str]:
     def read_column(path: Path) -> List[str]:
         if not path.exists():
             return []
-        df = pd.read_csv(path)
+
+        # Alguns CSVs exportados pelo sistema possuem quebras de linha ou aspas
+        # desalinhadas. Usamos o engine="python" com on_bad_lines="skip" para
+        # ignorar linhas quebradas e ainda assim aproveitar as descrições.
+        df = pd.read_csv(path, engine="python", on_bad_lines="skip")
         for col in [
             "descricao",
             "Descrição",
