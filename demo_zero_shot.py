@@ -85,22 +85,15 @@ def load_examples() -> List[str]:
         # ignorar linhas quebradas e ainda assim aproveitar as descrições.
         df = pd.read_csv(path, engine="python", on_bad_lines="skip")
         for col in [
-            "descricao",
-            "Descrição",
-            "Descricao",
-            "item",
-            "Item",
-            "ITEM",
-            "produto",
-            "Produto",
+            "nome_do_produto",
         ]:
             if col in df.columns:
                 series = df[col].dropna().astype(str).tolist()
                 return series
         return []
 
-    examples.extend(read_column(pedidos)[:6])
-    examples.extend(read_column(produtos)[:6])
+    examples.extend(read_column(pedidos)[:300])
+    examples.extend(read_column(produtos)[:300])
 
     fallback = [
         "LIQ. IND. 4LTS LQL4",
@@ -124,7 +117,7 @@ def load_examples() -> List[str]:
         if text not in seen:
             seen.add(text)
             unique_examples.append(text)
-    return unique_examples[:15]
+    return unique_examples[:200]
 
 
 def humanize_description(text: str) -> str:

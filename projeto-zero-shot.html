@@ -302,7 +302,7 @@
         }
       });
 
-      return best && best.score > 0 ? best.item : null;
+      return best && best.score > 0.1 ? best.item : null;
     }
 
     function renderResult(item, query) {
