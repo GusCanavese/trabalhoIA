@@ -1,0 +1,26 @@
+1 - para que serve? falar do bd sujo e que ele é utilizado para "reverter isso"
+ao realizar a tokenização de palavras nas descrições dos itens, ele consegue encontrar o item
+que eu procuro somente por uma sigla, ou uma palavra mal escrita
+o que se tiver padronizado e o modelo treinado, ele consegue encontrar onde eu quero realizar o cadastro
+e qual produto quero cadastrar. por exemplo PR-14E é a sigla de um tacho fritador, se eu digitar algo semelhante a essa siogla, ou ao nome do produto
+farei o cdadastro certo e garantirei um futuro banco de dados limpo
+
+2 -  como funciona?
+criamos as planilhas --> executamos o código --> json é gerado --> o modelo apresenta as respostas baseadas no json
+
+    2.1 - criando as planilhas- esse processo foi feito na versão anterior do trabalho (já apresentado)
+    2.2 - executar o código gerar_demo_zero_shot.py que utiliza o modelo "zero-shoot classification" que é um modelo pré treinado da META IA do facebook
+        e utilizado para linguagem natral e zero shot classification, que é o que a gente faz nesse código, serve para classificar textos sem treinamento específico
+    2.3 - os exemplos de prodtos da tabela são carregados, e caracteres estranhos são limpos, aém de sbstituir abreviações por exemplo "liq" -> "liquidificador"
+    
+    2.4 - Processo completo:
+            Carrega o pipeline do modelo Zero-Shot.
+            Carrega a lista de produtos.
+            Define o template “Este produto pertence à categoria de {}.” Para cada produto:
+            Executa a classificação nas categorias.
+            Seleciona top-3 categorias com suas probabilidades.
+            Extrai palavras-chave.
+            Monta um dicionário completo com os resultados.
+
+    2.5 - Salva tudo em demo_results.json.
+
