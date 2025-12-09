@@ -136,6 +136,21 @@
 
     .card p, .card li { color: var(--muted); }
 
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .highlight-card {
+      background: linear-gradient(135deg, rgba(118, 199, 192, 0.08), rgba(124, 93, 250, 0.07));
+      border: 1px solid rgba(118, 199, 192, 0.38);
+      box-shadow: var(--shadow);
+    }
+
     .timeline {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -305,6 +320,38 @@
           <li>Pipeline <code>zero-shot-classification</code> (ex.: <code>facebook/bart-large-mnli</code>).</li>
           <li>Resultados exportados em <code>public/demo_results.json</code>.</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="topic-block">
+      <div class="section-header">
+        <span class="tag">Pontos-chave</span>
+      </div>
+      <div class="grid">
+        <div class="card highlight-card">
+          <h2>Para que serve?</h2>
+          <ul>
+            <li>Reverter o “banco sujo” garantindo cadastros futuros mais consistentes.</li>
+            <li>Tokeniza descrições para encontrar itens mesmo com siglas ou erros (ex.: PR-14E para tacho fritador).</li>
+            <li>Auxilia a localizar categoria e produto corretos antes de registrar.</li>
+          </ul>
+        </div>
+        <div class="card highlight-card">
+          <h2>Como funciona?</h2>
+          <ul>
+            <li>Planilhas geradas na versão anterior servem de base para a demo.</li>
+            <li>Executa o script <code>gerar_demo_zero_shot.py</code> com o modelo zero-shot da Meta (NLI multilíngue).</li>
+            <li>Limpa exemplos, substitui abreviações (ex.: “liq” → “liquidificador”) e monta descrições legíveis.</li>
+          </ul>
+        </div>
+        <div class="card highlight-card">
+          <h2>Processo completo</h2>
+          <ul>
+            <li>Carrega pipeline, lista de produtos e aplica o template de categoria.</li>
+            <li>Classifica cada item, pega top-3 categorias e extrai palavras-chave.</li>
+            <li>Exporta tudo em <code>demo_results.json</code> para uso na interface.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
